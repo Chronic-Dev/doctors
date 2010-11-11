@@ -1,5 +1,6 @@
 all:
-	@echo "Making Linux Interfacing"
+	make -C PoisonJB
 
+	
 clean:
-	@echo "Cleaning Linux Interfacing"
+	make clean -C PoisonJB
