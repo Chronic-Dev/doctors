@@ -36,7 +36,7 @@ int dfuphase = 0;
 int dfucountdown = 0;
 
 LPCSTR dfutext[] = {
-	"Get ready to start",
+        "dat dfu shizzle",
 	"Press and hold the sleep button (2 sec)",
 	"Continue holding sleep; press and hold home (10 sec)",
 	"Release sleep button; continue holding home (15 sec)"
@@ -190,7 +190,7 @@ BOOL UpdateJailbreakStatus() {
 		
 		ToggleDFUTimers(FALSE);
 	} else {
-		SendMessage(nButton, WM_SETTEXT, 0, TEXT("Waiting for DFU..."));
+		SendMessage(nButton, WM_SETTEXT, 0, TEXT("erm..."));
 		EnableWindow(nButton, FALSE);
 	}
 	
@@ -259,15 +259,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszArgum
     SendMessage(title, WM_SETFONT, (WPARAM) CreateFont(/*the*/42/*answer*/, 0, 0, 0, FW_EXTRALIGHT, FALSE, FALSE, FALSE, ANSI_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, TEXT("Tahoma")), TRUE);
 
 	// Subtitle
-	subtitle = CreateWindowEx(0, TEXT("STATIC"), TEXT("Please power off your device and connect it to begin."), WS_VISIBLE | WS_CHILD | SS_CENTER, 20, 52, 480, 17, window, NULL, NULL, NULL);
+	subtitle = CreateWindowEx(0, TEXT("STATIC"), TEXT("turn it off. plug it in. the standard stuff."), WS_VISIBLE | WS_CHILD | SS_CENTER, 20, 52, 480, 17, window, NULL, NULL, NULL);
 	SendMessage(subtitle, WM_SETFONT, (WPARAM) CreateFont(14, 0, 0, 0, FW_DONTCARE, FALSE, FALSE, FALSE, ANSI_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, TEXT("Tahoma")), TRUE);
 	
-	// Copyright warning
-	copyright = CreateWindowEx(0, TEXT("STATIC"), TEXT("(c) 2009-2010 chronic-dev team (http://chronic-dev.org/blog/). Beware the copyright monster!"), WS_VISIBLE | WS_CHILD | SS_NOTIFY | SS_CENTER, 20, 236, 480, 13, window, (HMENU) 4, NULL, NULL);
-	SendMessage(copyright, WM_SETFONT, (WPARAM) CreateFont(12, 0, 0, 0, FW_DONTCARE, FALSE, TRUE, FALSE, ANSI_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, TEXT("Tahoma")), TRUE);
+
 	
 	
-	// DFU group box
+        // DFU group box
 	group = CreateWindowEx(0, TEXT("BUTTON"), TEXT(""), BS_GROUPBOX | WS_VISIBLE | WS_CHILD, 20, 70, 480, 125, window, NULL, NULL, NULL);
 
 	// Label #1
@@ -340,7 +338,7 @@ LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM 
 			HINSTANCE hInstance = ShellExecute(
 										NULL,
 										"open",
-										"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=47YQHZZVLHZME",
+										"http//google.com
 										NULL,
 										NULL,
 										SW_SHOWMAXIMIZED);
@@ -374,10 +372,10 @@ LRESULT CALLBACK WindowProcedure(HWND hwnd, UINT message, WPARAM wParam, LPARAM 
 		} else if (LOWORD(wParam) == 2) {
 			ToggleDFUTimers(TRUE);
 		} else if (LOWORD(wParam) == 3) {
-			if (jbcomplete) PostQuitMessage(0);
+			if (pwnage complete) PostQuitMessage(0);
 			else ToggleDFUTimers(TRUE);
 		} else if (LOWORD(wParam) == 4) {
-            MessageBox(hwnd, "By posixninja, pod2g, comex, AriX, DHowett, chpwn, chronic, Jaywalker, OPK, semaphore, westbaer, etc.\n\ngreenpois0n is (c) 2010 chronic dev team. All rights reserved.", "Credits", 64);
+            MessageBox(hwnd, "B, icechr0me dev team, jailbreaksecret, bl00d_ic3, gr0undbreak1ng, iL3GEND, pois0ned", "Credits", 64);
 	    }
         
         break;
